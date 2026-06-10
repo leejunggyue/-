@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>몽골여행 체크리스트 · 트래블서치</title>
+<style>
+  @font-face{font-family:'Pretendard';font-weight:400;font-display:swap;src:url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/packages/pretendard/dist/web/static/woff2/Pretendard-Regular.woff2") format("woff2");}
+  @font-face{font-family:'Pretendard';font-weight:500;font-display:swap;src:url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/packages/pretendard/dist/web/static/woff2/Pretendard-Medium.woff2") format("woff2");}
+  @font-face{font-family:'Pretendard';font-weight:600;font-display:swap;src:url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/packages/pretendard/dist/web/static/woff2/Pretendard-SemiBold.woff2") format("woff2");}
+  @font-face{font-family:'Pretendard';font-weight:700;font-display:swap;src:url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/packages/pretendard/dist/web/static/woff2/Pretendard-Bold.woff2") format("woff2");}
+  @font-face{font-family:'Pretendard';font-weight:800;font-display:swap;src:url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/packages/pretendard/dist/web/static/woff2/Pretendard-ExtraBold.woff2") format("woff2");}
+</style>
+<style>
+  :root{
+    --green:#1B8F5A; --green-deep:#0E5E3B; --green-soft:#E4F3EA;
+    --blue:#2C81D6; --blue-deep:#1E5FA3; --blue-soft:#E6F0FB;
+    --amber-bg:#FDF3DC; --amber-bar:#EFA22E;
+    --ink:#181B19; --muted:#6E756E; --faint:#9AA09A;
+    --page:#EBF0E9; --card:#FFFFFF; --line:#E7EBE5;
+    --radius:18px;
+    --shadow:0 1px 2px rgba(20,40,25,.05), 0 6px 22px rgba(20,50,30,.06);
+  }
+  *{box-sizing:border-box; -webkit-tap-highlight-color:transparent;}
+  html,body{margin:0;padding:0;}
+  body{
+    font-family:'Pretendard', system-ui, -apple-system, 'Apple SD Gothic Neo', sans-serif;
+    background:var(--page);
+    color:var(--ink);
+    -webkit-font-smoothing:antialiased;
+    text-rendering:optimizeLegibility;
+    line-height:1.5;
+  }
+  .phone{
+    max-width:460px; margin:0 auto; min-height:100vh;
+    background:var(--card);
+    box-shadow:0 0 60px rgba(20,50,30,.08);
+    position:relative;
+    padding-bottom:54px;
+  }
+
+  /* ===== Brand bar ===== */
+  .brand{
+    display:flex; align-items:center; gap:11px;
+    padding:16px 20px 14px;
+    border-bottom:1px solid var(--line);
+    position:sticky; top:0; z-index:30;
+    background:rgba(255,255,255,.92);
+    backdrop-filter:saturate(1.6) blur(10px);
+  }
+  image-slot.logo{
+    width:38px; height:38px; flex:0 0 auto;
+    border-radius:10px; overflow:hidden;
+  }
+  .brand .wm{display:flex; flex-direction:column; line-height:1.05;}
+  .brand .wm .ko{font-size:17px; font-weight:800; letter-spacing:-.02em;}
+  .brand .wm .en{font-size:9.5px; font-weight:700; letter-spacing:.22em; color:var(--green); margin-top:3px;}
+  .brand .spacer{flex:1;}
+  .brand .tag{
+    font-size:11px; font-weight:600; color:var(--muted);
+    background:var(--green-soft); color:var(--green-deep);
+    padding:5px 10px; border-radius:999px; white-space:nowrap;
+  }
+
+  /* ===== Hero / title ===== */
+  .hero{padding:24px 20px 18px; border-bottom:1px solid var(--line);}
+  .hero .eyebrow{
+    display:inline-flex; align-items:center; gap:6px;
+    font-size:11.5px; font-weight:700; letter-spacing:.02em;
+    color:var(--green-deep); background:var(--green-soft);
+    padding:5px 11px; border-radius:999px; margin-bottom:13px; white-space:nowrap;
+  }
+  .hero h1{
+    margin:0; font-size:29px; font-weight:800; letter-spacing:-.035em; line-height:1.18;
+  }
+  .hero h1 .flag{font-weight:400;}
+  .hero p.sub{margin:9px 0 0; font-size:14px; color:var(--muted); line-height:1.55;}
+
+  /* progress */
+  .prog{margin-top:20px;}
+  .prog-top{display:flex; align-items:baseline; justify-content:space-between; margin-bottom:9px;}
+  .prog-top .lbl{font-size:13px; font-weight:700; color:var(--ink); white-space:nowrap;}
+  .prog-top .num{font-size:13px; font-weight:700; color:var(--muted);}
+  .prog-top .num b{color:var(--green); font-size:18px; letter-spacing:-.02em;}
+  .bar{height:10px; border-radius:999px; background:#E3E8E1; overflow:hidden;}
+  .bar > i{
+    display:block; height:100%; width:0%;
+    background:linear-gradient(90deg,var(--green),#34B06F);
+    border-radius:999px; transition:width .45s cubic-bezier(.2,.7,.2,1);
+  }
+
+  /* ===== Group banner ===== */
+  .group{padding:22px 20px 4px;}
+  .gbanner{
+    display:flex; align-items:center; gap:13px;
+    padding:14px 16px; border-radius:14px; margin-bottom:6px;
+  }
+  .gbanner .sq{width:16px; height:16px; border-radius:4px; flex:0 0 auto;}
+  .gbanner .gt{display:flex; flex-direction:column; line-height:1.15;}
+  .gbanner .kick{font-size:10.5px; font-weight:800; letter-spacing:.16em;}
+  .gbanner .ttl{font-size:18px; font-weight:800; letter-spacing:-.02em; margin-top:2px;}
+  .gbanner.ess{background:var(--green); color:#fff;}
+  .gbanner.ess .sq{background:#fff;}
+  .gbanner.ess .kick{color:rgba(255,255,255,.78);}
+  .gbanner.opt{background:#F4F6F2; color:var(--ink); border:1px solid var(--line);}
+  .gbanner.opt .sq{background:var(--ink);}
+  .gbanner.opt .kick{color:var(--muted);}
+
+  /* ===== Section ===== */
+  .section{padding:18px 20px 4px;}
+  .sec-head{display:flex; align-items:center; gap:9px;}
+  .sec-head .emo{font-size:21px; line-height:1;}
+  .sec-head h3{margin:0; font-size:19px; font-weight:800; letter-spacing:-.02em; flex:1;}
+  .sec-head .cnt{
+    font-size:12px; font-weight:700; color:var(--muted);
+    background:#F1F4EF; padding:3px 9px; border-radius:999px;
+    font-variant-numeric:tabular-nums;
+  }
+  .sec-rule{height:2.5px; border-radius:2px; margin:9px 0 4px; background:var(--green);}
+  .section.blue .sec-rule{background:var(--blue);}
+  .section.blue .sec-head .cnt{color:var(--blue-deep);}
+
+  .sec-note{font-size:12.5px; color:var(--blue-deep); font-weight:600; margin:8px 0 2px; line-height:1.5;}
+
+  /* ===== Item ===== */
+  .list{margin:4px 0 0;}
+  .item{
+    display:flex; align-items:flex-start; gap:13px;
+    padding:11px 4px; cursor:pointer; position:relative;
+    border-bottom:1px solid #F1F3EF;
+  }
+  .item:last-child{border-bottom:none;}
+  .item input{position:absolute; opacity:0; width:0; height:0;}
+  .item .box{
+    flex:0 0 auto; width:23px; height:23px; margin-top:1px;
+    border:2px solid #C8CEC6; border-radius:7px;
+    display:flex; align-items:center; justify-content:center;
+    transition:all .16s ease; background:#fff;
+  }
+  .item .box svg{width:14px; height:14px; opacity:0; transform:scale(.6); transition:all .16s ease;}
+  .item .box svg path{stroke:#fff; stroke-width:3.2; fill:none; stroke-linecap:round; stroke-linejoin:round;}
+  .item input:checked ~ .box{background:var(--green); border-color:var(--green);}
+  .item input:checked ~ .box svg{opacity:1; transform:scale(1);}
+  .section.blue .item input:checked ~ .box{background:var(--blue); border-color:var(--blue);}
+  .item .txt{font-size:15.5px; line-height:1.42; padding-top:1px; flex:1;}
+  .item .txt b{font-weight:700;}
+  .item .txt .det{color:var(--muted); font-weight:500; font-size:14px;}
+  .item .txt .u{border-bottom:2px solid var(--green); padding-bottom:1px; font-weight:800;}
+  .section.blue .item .txt .u{border-color:var(--blue);}
+  .item input:checked ~ .txt{color:var(--faint);}
+  .item input:checked ~ .txt b{text-decoration:line-through; text-decoration-color:var(--faint); font-weight:600;}
+  .item input:checked ~ .txt .det{text-decoration:line-through;}
+  .item:active .box{transform:scale(.9);}
+
+  /* custom item */
+  .item .cinput{
+    flex:1; border:none; outline:none; font:inherit; font-size:15.5px;
+    background:transparent; color:var(--ink); padding-top:1px;
+  }
+  .item .cinput::placeholder{color:var(--faint);}
+  .item .del{
+    flex:0 0 auto; border:none; background:none; color:var(--faint);
+    font-size:18px; cursor:pointer; padding:0 4px; line-height:1; opacity:0; transition:opacity .15s;
+  }
+  .item:hover .del, .item:focus-within .del{opacity:1;}
+  .add-row{
+    display:flex; align-items:center; gap:11px;
+    padding:11px 4px; cursor:pointer; color:var(--green); font-weight:700; font-size:14px;
+    width:100%; border:none; background:none; text-align:left; font-family:inherit;
+  }
+  .add-row .plus{
+    width:23px; height:23px; border-radius:7px; border:2px dashed #C8CEC6;
+    display:flex; align-items:center; justify-content:center; color:var(--faint); font-size:16px; line-height:1;
+  }
+  .section.blue .add-row{color:var(--blue);}
+
+  /* ===== Callout ===== */
+  .callout{
+    margin:14px 20px 4px; padding:15px 16px 15px 17px;
+    border-radius:12px; border-left:4px solid; font-size:14px; line-height:1.62;
+  }
+  .callout.warn{background:var(--amber-bg); border-color:var(--amber-bar);}
+  .callout.info{background:var(--blue-soft); border-color:var(--blue);}
+  .callout .ct{display:flex; align-items:center; gap:7px; font-weight:800; font-size:14px; margin-bottom:6px;}
+  .callout.warn .ct{color:#B5790C;}
+  .callout.info .ct{color:var(--blue-deep);}
+  .callout p{margin:0; color:#3C4140;}
+  .callout p + p{margin-top:7px;}
+  .callout b{font-weight:800;}
+
+  /* divider between groups */
+  .grp-sep{height:9px; background:var(--page); margin-top:24px;}
+
+  /* ===== Footer actions ===== */
+  .actions{
+    display:flex; gap:10px; padding:24px 20px 10px;
+  }
+  .btn{
+    flex:1; display:flex; align-items:center; justify-content:center; gap:7px;
+    padding:14px; border-radius:13px; font-size:15px; font-weight:700;
+    cursor:pointer; border:1px solid var(--line); background:#fff; color:var(--ink);
+    font-family:inherit; transition:background .15s;
+  }
+  .btn:active{background:#F2F4F0;}
+  .btn.primary{background:var(--green); color:#fff; border-color:var(--green);}
+  .btn.primary:active{background:var(--green-deep);}
+  .btn svg{width:17px; height:17px;}
+  .foot-note{text-align:center; font-size:11.5px; color:var(--faint); padding:6px 20px 26px; line-height:1.6;}
+  .foot-note .mk{color:var(--green); font-weight:700;}
+
+  /* ===== CTA link blocks ===== */
+  .cta-list{display:flex; flex-direction:column; gap:13px; padding:8px 20px 4px;}
+  .cta{
+    display:flex; align-items:center; justify-content:center; gap:9px;
+    padding:18px 16px; border-radius:999px; font-size:16px; font-weight:800;
+    text-decoration:none; letter-spacing:-.03em; line-height:1.2; white-space:nowrap;
+    box-shadow:0 5px 16px rgba(20,40,25,.12);
+    transition:transform .12s ease, box-shadow .12s ease;
+  }
+  .cta:active{transform:translateY(1px) scale(.99); box-shadow:0 3px 9px rgba(20,40,25,.12);}
+  .cta.kakao{background:#FEE500; color:#1A1600;}
+  .cta.style{background:#C9AAF4; color:#2C1A4D;}
+  .cta .kic{
+    width:27px; height:27px; border-radius:50%; background:#1A1600;
+    display:flex; align-items:center; justify-content:center; flex:0 0 auto;
+  }
+  .cta .kic svg{width:16px; height:16px; color:#FEE500; display:block;}
+  .cta .sic{font-size:20px; line-height:1;}
+  .cta .arr{margin-left:2px; font-size:15px; opacity:.5;}
+
+  /* ===== Print ===== */
+  @media print{
+    body{background:#fff;}
+    .phone{max-width:100%; box-shadow:none; padding-bottom:0;}
+    .brand{position:static; backdrop-filter:none; background:#fff;}
+    .actions, .add-row, .item .del, .tag, .cta-list{display:none !important;}
+    .item{break-inside:avoid;}
+    .gbanner.ess{-webkit-print-color-adjust:exact; print-color-adjust:exact;}
+    .callout, .gbanner, .bar > i, .hero .eyebrow{-webkit-print-color-adjust:exact; print-color-adjust:exact;}
+  }
+</style>
+</head>
+<body>
+<template id="__bundler_thumbnail" data-bg-color="#1B8F5A">
+  <svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
+    <rect x="380" y="170" width="440" height="500" rx="44" fill="#ffffff"/>
+    <g transform="translate(440,250)" fill="none" stroke="#1B8F5A" stroke-width="22" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="0" y="0" width="46" height="46" rx="12"/>
+      <path d="M9 23 l14 14 l24 -28" stroke="#34B06F"/>
+      <rect x="0" y="110" width="46" height="46" rx="12"/>
+      <path d="M9 133 l14 14 l24 -28" stroke="#34B06F"/>
+      <rect x="0" y="220" width="46" height="46" rx="12"/>
+      <line x1="90" y1="23" x2="280" y2="23"/>
+      <line x1="90" y1="133" x2="280" y2="133"/>
+      <line x1="90" y1="243" x2="240" y2="243"/>
+    </g>
+  </svg>
+</template>
+<div class="phone">
+
+  <!-- BRAND -->
+  <header class="brand">
+    <image-slot class="logo" id="travelsearch-logo" shape="rounded" radius="10" placeholder="로고"></image-slot>
+    <div class="wm">
+      <span class="ko">트래블서치</span>
+      <span class="en">TRAVEL SEARCH</span>
+    </div>
+    <span class="spacer"></span>
+    <span class="tag">몽골 · MONGOLIA</span>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <span class="eyebrow">🧭 여행 준비 체크리스트</span>
+    <h1>몽골여행 준비물
+체크리스트</h1>
+    <p class="sub">출발 전, 빠진 건 없는지 하나씩 체크해 보세요.<br>체크 상태는 자동 저장돼요.</p>
+
+    <div class="prog">
+      <div class="prog-top">
+        <span class="lbl">전체 준비율</span>
+        <span class="num"><b id="pctNum">0</b>% · <span id="cntNum">0/0</span></span>
+      </div>
+      <div class="bar"><i id="barFill"></i></div>
+    </div>
+  </section>
+
+  <!-- ===== GROUP 1: 필수 ===== -->
+  <div class="group">
+    <div class="gbanner ess">
+      <span class="sq"></span>
+      <div class="gt">
+        <span class="kick">PART 1 — 필수</span>
+        <span class="ttl">선택 아닌 필수</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 필수품 -->
+  <section class="section" data-section="essentials">
+    <div class="sec-head">
+      <span class="emo">🧳</span>
+      <h3>필수품</h3>
+      <span class="cnt" data-cnt>0/0</span>
+    </div>
+    <div class="sec-rule"></div>
+    <div class="list">
+      <label class="item"><input type="checkbox" data-key="e-air"><span class="box"><svg viewBox="0 0 16 16"><path d="M3 8.5l3.2 3.2L13 4.5"/></svg></span><span class="txt"><b>항공권</b> <span class="det">e-티켓 캡처 또는 출력</span></span></label>
+      <label class="item"><input type="checkbox" data-key="e-passport"><span class="box"><svg viewBox="0 0 16 16"><path d="M3 8.5l3.2 3.2L13 4.5"/></svg></span><span class="txt"><b>여권 사본 및 여권 사진</b> <span class="det">분실 대비</span></span></label>
+      <label class="item"><input type="checkbox" data-key="e-insurance"><span class="box"><svg viewBox="0 0 16 16"><path d="M3 8.5l3.2 3.2L13 4.5"/></svg></span><span class="txt"><b>여행자보험</b> <span class="det">필수</span></span></label>
+      <label class="item"><input type="checkbox" data-key="e-card"><span class="box"><svg viewBox="0 0 16 16"><path d="M3 8.5l3.2 3.2L13 4.5"/></svg></span><span class="txt"><b>해외결제 카드</b> <span class="det">훼손된 자국 X · 신용카드 추천!</span></span></label>
+      <label class="item"><input type="checkbox" data-key="e-cash"><span class="box"><svg viewBox="0 0 16 16"><path d="M3 8.5l3.2 3.2L13 4.5"/></svg></span><span class="txt"><b>환전용 현금</b> <span class="det">5만원권 혹은 달러</span></span></label>
+      <label class="item"><input type="checkbox" data-key="e-usim"><span class="box"><svg viewBox="0 0 16 16"><path d="M3 8.5l3.2 3.2L13 4.5"/></svg></span><span class="txt"><b>유심</b> <span class="det">사전 요청 가능 (7기가 5$)</span></span></label>
+      <label class="item"><input type="checkbox" data-key="e-tourusd"><span class="box"><svg viewBox="0 0 16 16"><path d="M3 8.5l3.2 3.2L13 4.5"/></svg></span><span class="txt"><b>투어비</b> <span class="det">달러(USD)로 준비</span></span></label>
+    </div>
+    <div class="custom-slot"></div>
+    <button class="add-row" data-add><span class="plus">+</span>직접 추가하기</button>
+  </section>
+
+  <!-- 옷 -->
+  <section class="section" data-section="clothes">
+    <div class="sec-head">
+      <span class="emo">👕</span>
+      <h3>옷</h3>
+      <span class="cnt" data-cnt>0/0</span>
+    </div>
+    <div class="sec-rule"></div>
+    <div class="list">
+      <label class="item"><input type="checkbox" data-key="c-top"><span class="box"><svg viewBox="0 0 16 16"><path d="M3 8.5l3.2 3.2L13 4.5"/></svg></span><span class="txt"><b>상의 / 하의</b></span></label>
+      <label class="item"><input type="checkbox" data-key="c-sleep"><span class="box"><svg viewBox="0 0 16 16"><path d="M3 8.5l3.2 3.2L13 4.5"/></svg></span><span class="txt"><b>잠옷</b></span></label>
+      <label class="item"><input type="checkbox" data-key="c-under"><span class="box"><svg viewBox="0 0 16 16"><path d="M3 8.5l3.2 3.2L13 4.5"/></svg></span><span class="txt"><b>속옷</b></span></label>
+      <label class="item"><input type="checkbox" data-key="c-outer"><span class="box"><svg viewBox="0 0 16 16"><path d="M3 8.5l3.2 3.2L13 4.5"/></svg></span><span class="txt"><b>겉옷</b> <span class="det">바람막이 추천</span></span></label>
+      <label class="item"><input type="checkbox" data-key="c-socks"><span class="box"><svg viewBox="0 0 16 16"><path d="M3 8.5l3.2 3.2L13 4.5"/></svg></span><span class="txt"><b>양말</b></span></label>
+      <label class="item"><input type="checkbox" data-key="c-sun"><span class="box"><svg viewBox="0 0 16 16"><path d="M3 8.5l3.2 3.2L13 4.5"/></svg></span><span class="txt"><b>선글라스 / 모자</b> <span class="det">햇빛이 강해요!</span></span></label>
+      <label class="item"><input type="checkbox" data-key="c-shoes"><span class="box"><svg viewBox="0 0 16 16"><path d="M3 8.5l3.2 3.2L13 4.5"/></svg></span><span class="txt"><b>운동화 / 슬리퍼</b> <span class="det">숙소에서는 편하게 ^^</span></span></label>
+      <label class="item"><input type="checkbox" data-key="c-swim"><span class="box"><svg viewBox="0 0 16 16"><path d="M3 8.5l3.2 3.2L13 4.5"/></svg></span><span class="txt"><b>수영복</b> <span class="det">온천용</span></span></label>
+    </div>
+    <div class="custom-slot"></div>
+    <button class="add-row" data-add><span class="plus">+</span>직접 추가하기</button>
+  </section>
+
+  <div class="callout warn">
+    <div class="ct">⚠️ 알아두세요</div>
+    <p>야생의 낙타와 말을 탑승하면 바지에 특유의 냄새가 밸 수 
+있어요! ㅎㅎ
+버려도 될 옷으로 준비하시면 좋아요.</p>
+  </div>
+
+  <div class="grp-sep"></div>
+
+  <!-- ===== GROUP 2: 선택 ===== -->
+  <div class="group">
+    <div class="gbanner opt">
+      <span class="sq"></span>
+      <div class="gt">
+        <span class="kick">PART 2 — 선택</span>
+        <span class="ttl">필수 아닌 선택</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 상비약 -->
+  <section class="section blue" data-section="medicine">
+    <div class="sec-head">
+      <span class="emo">💊</span>
+      <h3>상비약</h3>
+      <span class="cnt" data-cnt>0/0</span>
+    </div>
+    <div class="sec-rule"></div>
+    <p class="sec-note">약도 없으면 짐이에요! 팀원이랑 나눠서 챙기기 👍</p>
+    <div class="list">
+      <label class="item"><input type="checkbox" data-key="m-head"><span class="box"><svg viewBox="0 0 16 16"><path d="M3 8.5l3.2 3.2L13 4.5"/></svg></span><span class="txt"><b>두통약 / 진통제</b></span></label>
+      <label class="item"><input type="checkbox" data-key="m-cold"><span class="box"><svg viewBox="0 0 16 16"><path d="M3 8.5l3.2 3.2L13 4.5"/></svg></span><span class="txt"><b>감기약</b></span></label>
+      <label class="item"><input type="checkbox" data-key="m-digest"><span class="box"><svg viewBox="0 0 16 16"><path d="M3 8.5l3.2 3.2L13 4.5"/></svg></span><span class="txt"><b>소화제</b></span></label>
+      <label class="item"><input type="checkbox" data-key="m-diarrhea"><span class="box"><svg viewBox="0 0 16 16"><path d="M3 8.5l3.2 3.2L13 4.5"/></svg></span><span class="txt"><b>지사제</b></span></label>
+      <label class="item"><input type="checkbox" data-key="m-motion"><span class="box"><svg viewBox="0 0 16 16"><path d="M3 8.5l3.2 3.2L13 4.5"/></svg></span><span class="txt"><b>멀미약</b> <span class="det">아무리 승차감 좋은 차량도 비포장도로에선…</span></span></label>
+      <label class="item"><input type="checkbox" data-key="m-band"><span class="box"><svg viewBox="0 0 16 16"><path d="M3 8.5l3.2 3.2L13 4.5"/></svg></span><span class="txt"><b>반창고 + 연고</b></span></label>
+      <label class="item"><input type="checkbox" data-key="m-mosquito"><span class="box"><svg viewBox="0 0 16 16"><path d="M3 8.5l3.2 3.2L13 4.5"/></svg></span><span class="txt"><b>모기 기피제</b> <span class="det">초원에서 피할 수 없는 벌레ㅠㅠ</span></span></label>
+      <label class="item"><input type="checkbox" data-key="m-personal"><span class="box"><svg viewBox="0 0 16 16"><path d="M3 8.5l3.2 3.2L13 4.5"/></svg></span><span class="txt"><b>개인적인 복용약</b></span></label>
+    </div>
+    <div class="custom-slot"></div>
+    <button class="add-row" data-add><span class="plus">+</span>직접 추가하기</button>
+  </section>
+
+  <div class="callout info">
+    <div class="ct">💡 짐 싸기 팁</div>
+    <p>상비약은 부피가 작아 <b>잘 빠지기 쉬워요.</b> 일행이 있다면 종류별로 나눠 담으면 짐도 줄고 분실 위험도 낮아져요.</p>
+    <p>현지 시골 지역에서는 약 구하기가 어려우니, 평소 복용하는 약이 있다면 <b>넉넉히</b> 챙기세요.</p>
+  </div>
+
+  <!-- 뷰티 -->
+  <section class="section blue" data-section="beauty">
+    <div class="sec-head">
+      <span class="emo">🧴</span>
+      <h3>뷰티</h3>
+      <span class="cnt" data-cnt>0/0</span>
+    </div>
+    <div class="sec-rule"></div>
+    <div class="list">
+      <label class="item"><input type="checkbox" data-key="b-cosmetic"><span class="box"><svg viewBox="0 0 16 16"><path d="M3 8.5l3.2 3.2L13 4.5"/></svg></span><span class="txt"><b>화장품 / 기초제품 / 선크림</b></span></label>
+      <label class="item"><input type="checkbox" data-key="b-shampoo"><span class="box"><svg viewBox="0 0 16 16"><path d="M3 8.5l3.2 3.2L13 4.5"/></svg></span><span class="txt"><b>샴푸 / 린스 / 바디워시</b> <span class="det">다이소 1회용 추천! 쓰고 버리기</span></span></label>
+      <label class="item"><input type="checkbox" data-key="b-tooth"><span class="box"><svg viewBox="0 0 16 16"><path d="M3 8.5l3.2 3.2L13 4.5"/></svg></span><span class="txt"><b>칫솔 / 치약 / 가글</b></span></label>
+      <label class="item"><input type="checkbox" data-key="b-mask-humid"><span class="box"><svg viewBox="0 0 16 16"><path d="M3 8.5l3.2 3.2L13 4.5"/></svg></span><span class="txt"><b>가습 마스크</b> <span class="det">건조한 몽골에서 은근 꿀템</span></span></label>
+      <label class="item"><input type="checkbox" data-key="b-eyedrop"><span class="box"><svg viewBox="0 0 16 16"><path d="M3 8.5l3.2 3.2L13 4.5"/></svg></span><span class="txt"><b>인공눈물</b> <span class="det">건조한 몽골에서 필수템 ①</span></span></label>
+      <label class="item"><input type="checkbox" data-key="b-lipbalm"><span class="box"><svg viewBox="0 0 16 16"><path d="M3 8.5l3.2 3.2L13 4.5"/></svg></span><span class="txt"><b>립밤 or 바세린 / 핸드크림</b> <span class="det">건조한 몽골에서 필수템 ②</span></span></label>
+      <label class="item"><input type="checkbox" data-key="b-maskpack"><span class="box"><svg viewBox="0 0 16 16"><path d="M3 8.5l3.2 3.2L13 4.5"/></svg></span><span class="txt"><b>마스크팩</b> <span class="det">건조한 몽골에서 필수템 ③</span></span></label>
+      <label class="item"><input type="checkbox" data-key="b-cleansing"><span class="box"><svg viewBox="0 0 16 16"><path d="M3 8.5l3.2 3.2L13 4.5"/></svg></span><span class="txt"><b>클렌징폼 / 티슈</b></span></label>
+      <label class="item"><input type="checkbox" data-key="b-dryshampoo"><span class="box"><svg viewBox="0 0 16 16"><path d="M3 8.5l3.2 3.2L13 4.5"/></svg></span><span class="txt"><b>드라이샴푸</b> <span class="det">샤워가 어려울 수 있어요! 매니저는 한번도 안 써본 마법템</span></span></label>
+      <label class="item"><input type="checkbox" data-key="b-towel"><span class="box"><svg viewBox="0 0 16 16"><path d="M3 8.5l3.2 3.2L13 4.5"/></svg></span><span class="txt"><b>수건</b> <span class="det">1회용 수건 추천</span></span></label>
+    </div>
+    <div class="custom-slot"></div>
+    <button class="add-row" data-add><span class="plus">+</span>직접 추가하기</button>
+  </section>
+
+  <!-- 전자기기 -->
+  <section class="section blue" data-section="devices">
+    <div class="sec-head">
+      <span class="emo">🔌</span>
+      <h3>전자기기</h3>
+      <span class="cnt" data-cnt>0/0</span>
+    </div>
+    <div class="sec-rule"></div>
+    <div class="list">
+      <label class="item"><input type="checkbox" data-key="d-charger"><span class="box"><svg viewBox="0 0 16 16"><path d="M3 8.5l3.2 3.2L13 4.5"/></svg></span><span class="txt"><b>충전기</b></span></label>
+      <label class="item"><input type="checkbox" data-key="d-battery"><span class="box"><svg viewBox="0 0 16 16"><path d="M3 8.5l3.2 3.2L13 4.5"/></svg></span><span class="txt"><b>보조배터리</b> <span class="det">100Wh(20,000mAh) 이하 반입 · 100~160Wh 항공사 승인 필요(1인 2개 제한)</span></span></label>
+      <label class="item"><input type="checkbox" data-key="d-powerstrip"><span class="box"><svg viewBox="0 0 16 16"><path d="M3 8.5l3.2 3.2L13 4.5"/></svg></span><span class="txt"><b>멀티탭</b> <span class="det">몽골은 220V</span></span></label>
+      <label class="item"><input type="checkbox" data-key="d-selfie"><span class="box"><svg viewBox="0 0 16 16"><path d="M3 8.5l3.2 3.2L13 4.5"/></svg></span><span class="txt"><b>셀카봉</b></span></label>
+      <label class="item"><input type="checkbox" data-key="d-tripod"><span class="box"><svg viewBox="0 0 16 16"><path d="M3 8.5l3.2 3.2L13 4.5"/></svg></span><span class="txt"><b>삼각대</b> <span class="det">별 찍을 때 필수!!</span></span></label>
+      <label class="item"><input type="checkbox" data-key="d-dryer"><span class="box"><svg viewBox="0 0 16 16"><path d="M3 8.5l3.2 3.2L13 4.5"/></svg></span><span class="txt"><b>헤어드라이기 + 고데기</b> <span class="det">조심! 와트 높은 제품은 차량 시가잭이 내려갈 수 있어요</span></span></label>
+      <label class="item"><input type="checkbox" data-key="d-lantern"><span class="box"><svg viewBox="0 0 16 16"><path d="M3 8.5l3.2 3.2L13 4.5"/></svg></span><span class="txt"><b>랜턴</b> <span class="det">저녁에 유용해요! 특히 별 찍을 때</span></span></label>
+    </div>
+    <div class="custom-slot"></div>
+    <button class="add-row" data-add><span class="plus">+</span>직접 추가하기</button>
+  </section>
+
+  <!-- 기타 -->
+  <section class="section blue" data-section="etc">
+    <div class="sec-head">
+      <span class="emo">🧺</span>
+      <h3>기타</h3>
+      <span class="cnt" data-cnt>0/0</span>
+    </div>
+    <div class="sec-rule"></div>
+    <div class="list">
+      <label class="item"><input type="checkbox" data-key="x-food"><span class="box"><svg viewBox="0 0 16 16"><path d="M3 8.5l3.2 3.2L13 4.5"/></svg></span><span class="txt"><b>기호식품</b> <span class="det">반찬과 같은 기호식품은 미포함</span></span></label>
+      <label class="item"><input type="checkbox" data-key="x-neck"><span class="box"><svg viewBox="0 0 16 16"><path d="M3 8.5l3.2 3.2L13 4.5"/></svg></span><span class="txt"><b>목베개</b> <span class="det">저는 꼭 필수라 말해요. 특히 긴 여행일수록!!</span></span></label>
+      <label class="item"><input type="checkbox" data-key="x-net"><span class="box"><svg viewBox="0 0 16 16"><path d="M3 8.5l3.2 3.2L13 4.5"/></svg></span><span class="txt"><b>1인 모기장</b> <span class="det">7~8월 여름엔 벌레가 많아요!</span></span></label>
+      <label class="item"><input type="checkbox" data-key="x-bag"><span class="box"><svg viewBox="0 0 16 16"><path d="M3 8.5l3.2 3.2L13 4.5"/></svg></span><span class="txt"><b>비닐봉지 / 지퍼팩</b></span></label>
+      <label class="item"><input type="checkbox" data-key="x-umbrella"><span class="box"><svg viewBox="0 0 16 16"><path d="M3 8.5l3.2 3.2L13 4.5"/></svg></span><span class="txt"><b>우산 / 우비</b></span></label>
+      <label class="item"><input type="checkbox" data-key="x-glove"><span class="box"><svg viewBox="0 0 16 16"><path d="M3 8.5l3.2 3.2L13 4.5"/></svg></span><span class="txt"><b>면장갑</b> <span class="det">승마·낙타 체험 시 손 보호하기</span></span></label>
+      <label class="item"><input type="checkbox" data-key="x-tissue"><span class="box"><svg viewBox="0 0 16 16"><path d="M3 8.5l3.2 3.2L13 4.5"/></svg></span><span class="txt"><b>휴지 / 물티슈</b></span></label>
+      <label class="item"><input type="checkbox" data-key="x-nail"><span class="box"><svg viewBox="0 0 16 16"><path d="M3 8.5l3.2 3.2L13 4.5"/></svg></span><span class="txt"><b>손톱깎이</b> <span class="det">건조해서 손톱이 깨지는 경우가 있어요!</span></span></label>
+      <label class="item"><input type="checkbox" data-key="x-tumbler"><span class="box"><svg viewBox="0 0 16 16"><path d="M3 8.5l3.2 3.2L13 4.5"/></svg></span><span class="txt"><b>텀블러</b> <span class="det">일교차가 큰 몽골에서 따뜻한 물 보관에 좋아요</span></span></label>
+      <label class="item"><input type="checkbox" data-key="x-basin"><span class="box"><svg viewBox="0 0 16 16"><path d="M3 8.5l3.2 3.2L13 4.5"/></svg></span><span class="txt"><b>바가지</b> <span class="det">한국과 수압이 달라요. 일정이 길다면 유용할 수도!</span></span></label>
+      <label class="item"><input type="checkbox" data-key="x-board"><span class="box"><svg viewBox="0 0 16 16"><path d="M3 8.5l3.2 3.2L13 4.5"/></svg></span><span class="txt"><b>보드게임</b></span></label>
+    </div>
+    <div class="custom-slot"></div>
+    <button class="add-row" data-add><span class="plus">+</span>직접 추가하기</button>
+  </section>
+
+  <!-- ACTIONS -->
+  <div class="actions">
+    <button class="btn" id="resetBtn">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 109-9 9 9 0 00-7 3.3M3 4v4h4"/></svg>
+      초기화
+    </button>
+    <button class="btn primary" id="printBtn">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9V3h12v6M6 18H4a2 2 0 01-2-2v-4a2 2 0 012-2h16a2 2 0 012 2v4a2 2 0 01-2 2h-2M6 14h12v8H6z"/></svg>
+      인쇄 / 저장
+    </button>
+  </div>
+
+  <!-- CTA LINK BLOCKS -->
+  <div class="cta-list">
+    <a class="cta kakao" href="#" target="_blank" rel="noopener" data-cta="kakao">
+      <span class="kic"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 3C6.48 3 2 6.48 2 10.8c0 2.76 1.86 5.19 4.65 6.57-.2.71-.74 2.65-.85 3.06-.13.51.19.5.4.37.16-.11 2.6-1.77 3.66-2.49.69.1 1.41.16 2.14.16 5.52 0 10-3.48 10-7.77C22 6.48 17.52 3 12 3z"/></svg></span>
+      <span>궁금한 점 상담톡에 물어보기</span>
+    </a>
+    <a class="cta style" href="#" target="_blank" rel="noopener" data-cta="style">
+      <span class="sic">✨</span>
+      <span>나의 몽골여행 스타일은?</span>
+      <span class="arr">›</span>
+    </a>
+  </div>
+
+  <p class="foot-note">체크 상태는 이 기기에 자동 저장돼요.<br><span class="mk">트래블서치</span> · 몽골 현지 맞춤 여행</p>
+
+</div>
+
+<script src="image-slot.js"></script>
+<script>
+(function(){
+  const LS = 'travelsearch_mongol_checklist_v1';
+  let state = {};
+  try{ state = JSON.parse(localStorage.getItem(LS)) || {}; }catch(e){ state = {}; }
+  state.checks = state.checks || {};   // { key: true }
+  state.custom = state.custom || {};   // { sectionId: [{t, c}] }
+
+  function save(){ localStorage.setItem(LS, JSON.stringify(state)); }
+
+  const checkSvg = '<svg viewBox="0 0 16 16"><path d="M3 8.5l3.2 3.2L13 4.5"/></svg>';
+
+  // ---- restore native checks ----
+  document.querySelectorAll('.item input[data-key]').forEach(inp=>{
+    if(state.checks[inp.dataset.key]) inp.checked = true;
+    inp.addEventListener('change', ()=>{
+      if(inp.checked) state.checks[inp.dataset.key] = true;
+      else delete state.checks[inp.dataset.key];
+      save(); update();
+    });
+  });
+
+  // ---- custom items ----
+  function makeCustomRow(sectionId, idx, data){
+    const label = document.createElement('label');
+    label.className = 'item';
+    const inp = document.createElement('input');
+    inp.type = 'checkbox';
+    inp.checked = !!data.c;
+    const box = document.createElement('span');
+    box.className = 'box';
+    box.innerHTML = checkSvg;
+    const field = document.createElement('input');
+    field.type = 'text';
+    field.className = 'cinput';
+    field.placeholder = '직접 입력…';
+    field.value = data.t || '';
+    const del = document.createElement('button');
+    del.className = 'del';
+    del.type = 'button';
+    del.innerHTML = '&times;';
+
+    // prevent the label from toggling checkbox when typing
+    field.addEventListener('click', e=> e.preventDefault());
+    field.addEventListener('mousedown', e=> e.stopPropagation());
+    field.addEventListener('input', ()=>{ data.t = field.value; save(); });
+    inp.addEventListener('change', ()=>{ data.c = inp.checked; save(); update(); });
+    del.addEventListener('click', (e)=>{
+      e.preventDefault();
+      const arr = state.custom[sectionId];
+      const i = arr.indexOf(data);
+      if(i>-1) arr.splice(i,1);
+      save(); renderCustom(sectionId); update();
+    });
+
+    label.appendChild(inp);
+    label.appendChild(box);
+    label.appendChild(field);
+    label.appendChild(del);
+    return label;
+  }
+
+  function renderCustom(sectionId){
+    const sec = document.querySelector('.section[data-section="'+sectionId+'"]');
+    const slot = sec.querySelector('.custom-slot');
+    slot.innerHTML = '';
+    (state.custom[sectionId]||[]).forEach((d, i)=>{
+      slot.appendChild(makeCustomRow(sectionId, i, d));
+    });
+  }
+
+  document.querySelectorAll('.section').forEach(sec=>{
+    const id = sec.dataset.section;
+    if(state.custom[id] && state.custom[id].length) renderCustom(id);
+    const addBtn = sec.querySelector('[data-add]');
+    addBtn.addEventListener('click', ()=>{
+      state.custom[id] = state.custom[id] || [];
+      const d = {t:'', c:false};
+      state.custom[id].push(d);
+      save();
+      renderCustom(id);
+      // focus the new field
+      const fields = sec.querySelectorAll('.custom-slot .cinput');
+      if(fields.length) fields[fields.length-1].focus();
+      update();
+    });
+  });
+
+  // ---- progress ----
+  function update(){
+    let total=0, done=0;
+    document.querySelectorAll('.section').forEach(sec=>{
+      const inputs = sec.querySelectorAll('.item input[type="checkbox"]');
+      let st=0, sd=0;
+      inputs.forEach(i=>{ st++; if(i.checked) sd++; });
+      total += st; done += sd;
+      const cnt = sec.querySelector('[data-cnt]');
+      if(cnt) cnt.textContent = sd+'/'+st;
+    });
+    const pct = total ? Math.round(done/total*100) : 0;
+    document.getElementById('pctNum').textContent = pct;
+    document.getElementById('cntNum').textContent = done+'/'+total;
+    document.getElementById('barFill').style.width = pct+'%';
+  }
+
+  // ---- actions ----
+  document.getElementById('printBtn').addEventListener('click', ()=> window.print());
+  document.getElementById('resetBtn').addEventListener('click', ()=>{
+    if(!confirm('체크 상태와 직접 추가한 항목을 모두 초기화할까요?')) return;
+    state.checks = {}; state.custom = {};
+    save();
+    document.querySelectorAll('.item input[data-key]').forEach(i=> i.checked=false);
+    document.querySelectorAll('.custom-slot').forEach(s=> s.innerHTML='');
+    update();
+  });
+
+  update();
+})();
+</script>
+</body>
+</html>

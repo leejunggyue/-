@@ -1,0 +1,438 @@
+/**
+ * Wanted Design System — Colors & Typography CSS Variables
+ * Source: Wanted Design System (Community).fig
+ * Primary font: Pretendard JP (Korean/English/Japanese)
+ * Brand font: Wanted Sans / Wanted Sans Variable
+ */
+
+/* ─────────────────────────────────────────────
+   GOOGLE FONTS IMPORT
+   Note: Pretendard JP and Wanted Sans are not on Google Fonts.
+   We use Pretendard from the CDN below; for production,
+   replace with self-hosted font files in fonts/
+───────────────────────────────────────────── */
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard-jp.min.css');
+
+/* ─────────────────────────────────────────────
+   COLOR TOKENS — COMMON (Black/White)
+───────────────────────────────────────────── */
+:root {
+  --color-common-100: #FFFFFF;
+  --color-common-0:   #000000;
+
+  /* ─── NEUTRAL (warm gray) ─── */
+  --color-neutral-100: #FFFFFF;
+  --color-neutral-99:  #FAFAFA;
+  --color-neutral-95:  #F2F2F2;
+  --color-neutral-90:  #E8E8E8;
+  --color-neutral-80:  #D4D4D4;
+  --color-neutral-70:  #BFBFBF;
+  --color-neutral-60:  #A8A8A8;
+  --color-neutral-50:  #919191;
+  --color-neutral-40:  #787878;
+  --color-neutral-30:  #5E5E5E;
+  --color-neutral-22:  #464646;
+  --color-neutral-20:  #3D3D3D;
+  --color-neutral-15:  #2E2E2E;
+  --color-neutral-10:  #1F1F1F;
+  --color-neutral-5:   #141414;
+  --color-neutral-0:   #000000;
+
+  /* ─── COOL NEUTRAL (bluish gray — primary UI gray) ─── */
+  --color-cool-neutral-100: #FFFFFF;
+  --color-cool-neutral-99:  #F9F9FA;
+  --color-cool-neutral-98:  #F7F7F8;
+  --color-cool-neutral-97:  #F4F4F5;
+  --color-cool-neutral-96:  #F2F2F3;
+  --color-cool-neutral-95:  #EFEFF0;
+  --color-cool-neutral-90:  #E4E5E7;
+  --color-cool-neutral-80:  #DBDCDF;
+  --color-cool-neutral-70:  #C2C4C8;
+  --color-cool-neutral-60:  #AAB0B8;  /* approx */
+  --color-cool-neutral-50:  #9497A0;  /* approx */
+  --color-cool-neutral-40:  #70737C;
+  --color-cool-neutral-30:  #55575E;
+  --color-cool-neutral-25:  #4A4B52;
+  --color-cool-neutral-23:  #434449;
+  --color-cool-neutral-22:  #3F4046;
+  --color-cool-neutral-20:  #37383C;
+  --color-cool-neutral-17:  #2F3033;
+  --color-cool-neutral-15:  #2B2C2F;
+  --color-cool-neutral-10:  #212225;
+  --color-cool-neutral-7:   #1B1C1E;
+  --color-cool-neutral-5:   #171719;
+  --color-cool-neutral-0:   #000000;
+
+  /* ─── BLUE (brand primary) ─── */
+  --color-blue-99:  #EAF2FE;
+  --color-blue-95:  #CCDFFE;
+  --color-blue-90:  #99BFFD;
+  --color-blue-80:  #669DFB;
+  --color-blue-70:  #3380FA;
+  --color-blue-65:  #1A70F9;
+  --color-blue-60:  #0062F5;
+  --color-blue-55:  #005EEB;
+  --color-blue-50:  #0057DB;  /* approx */
+  --color-blue-45:  #0051CB;  /* approx */
+  --color-blue-40:  #0066FF;  /* brand action color */
+  --color-blue-30:  #004DC0;
+  --color-blue-20:  #003490;
+  --color-blue-10:  #001B60;
+  --color-blue-0:   #000830;
+
+  /* ─── RED (error / destructive) ─── */
+  --color-red-99:  #FFF0F0;
+  --color-red-95:  #FFD6D6;
+  --color-red-90:  #FFACAC;
+  --color-red-80:  #FF8585;
+  --color-red-70:  #FF6060;
+  --color-red-60:  #FF4242;
+  --color-red-50:  #F72B2B;
+  --color-red-40:  #E01A1A;
+  --color-red-30:  #BF1010;
+  --color-red-20:  #950808;
+  --color-red-10:  #680000;
+  --color-red-0:   #3A0000;
+
+  /* ─── GREEN (success / positive) ─── */
+  --color-green-99:  #EDFFF4;
+  --color-green-95:  #CCFFE0;
+  --color-green-90:  #9AFFC4;
+  --color-green-80:  #5CFFA1;
+  --color-green-70:  #1FFF80;
+  --color-green-60:  #00E860;
+  --color-green-50:  #00BF40;
+  --color-green-40:  #009930;
+  --color-green-30:  #007523;
+  --color-green-20:  #005218;
+  --color-green-10:  #00320E;
+  --color-green-0:   #001505;
+
+  /* ─── VIOLET / PURPLE ─── */
+  --color-violet-40:  #6541F2;
+  --color-purple-40:  #9747FF;
+
+  /* ─── CYAN ─── */
+  --color-cyan-40:  #0098B2;
+
+  /* ─────────────────────────────────────────────
+     SEMANTIC TOKENS — LIGHT MODE
+  ───────────────────────────────────────────── */
+
+  /* Foreground / Text */
+  --color-fg-primary:    #171719;   /* cool-neutral-5 — primary text */
+  --color-fg-secondary:  #37383C;   /* cool-neutral-20 — body/supporting */
+  --color-fg-tertiary:   #70737C;   /* cool-neutral-40 — placeholder/disabled label */
+  --color-fg-quaternary: #C2C4C8;   /* cool-neutral-70 — subtle */
+  --color-fg-disabled:   #C2C4C8;
+  --color-fg-on-primary: #FFFFFF;   /* text on solid primary buttons */
+  --color-fg-on-dark:    #FFFFFF;
+  --color-fg-link:       #0066FF;
+  --color-fg-error:      #FF4242;
+  --color-fg-success:    #00BF40;
+
+  /* Background */
+  --color-bg-primary:    #FFFFFF;
+  --color-bg-secondary:  #F7F7F8;   /* cool-neutral-98 */
+  --color-bg-tertiary:   #F4F4F5;   /* cool-neutral-97 */
+  --color-bg-overlay:    rgba(0,0,0,0.5);
+  --color-bg-toast:      #171719;
+
+  /* Surface */
+  --color-surface-1: #FFFFFF;
+  --color-surface-2: #F7F7F8;
+  --color-surface-3: #F4F4F5;
+  --color-surface-raised: #FFFFFF;
+
+  /* Border */
+  --color-border-subtle:  rgba(112,115,124,0.22);
+  --color-border-default: rgba(112,115,124,0.4);
+  --color-border-strong:  #70737C;
+  --color-border-focus:   #0066FF;
+  --color-border-error:   #FF4242;
+
+  /* Interactive — Primary (Blue) */
+  --color-interactive-primary:         #0066FF;
+  --color-interactive-primary-hover:   #005EEB;
+  --color-interactive-primary-press:   #004DC0;
+  --color-interactive-primary-subtle:  #EAF2FE;
+
+  /* Interactive — Assistive */
+  --color-interactive-assistive:        #F4F4F5;
+  --color-interactive-assistive-hover:  #E4E5E7;
+  --color-interactive-assistive-press:  #DBDCDF;
+
+  /* Status */
+  --color-status-positive: #00BF40;
+  --color-status-negative: #FF4242;
+  --color-status-caution:  #FF9500;
+  --color-status-info:     #0066FF;
+
+  /* ─────────────────────────────────────────────
+     SHADOWS
+  ───────────────────────────────────────────── */
+  --shadow-sm:  0 1px 4px rgba(0,0,0,0.06), 0 1px 2px rgba(23,23,23,0.06);
+  --shadow-md:  0 2px 8px rgba(0,0,0,0.08);
+  --shadow-lg:  0 4px 12px rgba(0,0,0,0.12), 0 2px 6px rgba(23,23,23,0.07);
+  --shadow-xl:  0 8px 24px rgba(0,0,0,0.12);
+
+  /* ─────────────────────────────────────────────
+     BORDER RADIUS
+  ───────────────────────────────────────────── */
+  --radius-xs:   4px;
+  --radius-sm:   8px;
+  --radius-md:   12px;
+  --radius-lg:   16px;
+  --radius-xl:   24px;
+  --radius-2xl:  32px;
+  --radius-full: 9999px;
+
+  /* ─────────────────────────────────────────────
+     SPACING SCALE
+  ───────────────────────────────────────────── */
+  --space-1:   2px;
+  --space-2:   4px;
+  --space-3:   6px;
+  --space-4:   8px;
+  --space-5:   10px;
+  --space-6:   12px;
+  --space-7:   14px;
+  --space-8:   16px;
+  --space-10:  20px;
+  --space-12:  24px;
+  --space-14:  28px;
+  --space-16:  32px;
+  --space-20:  40px;
+  --space-24:  48px;
+  --space-28:  56px;
+  --space-32:  64px;
+  --space-40:  80px;
+  --space-48:  96px;
+  --space-64:  128px;
+  --space-80:  160px;
+  --space-96:  192px;
+  --space-112: 224px;
+}
+
+/* ─────────────────────────────────────────────
+   TYPOGRAPHY — FONT FAMILIES
+───────────────────────────────────────────── */
+:root {
+  --font-primary: 'Pretendard JP', 'Pretendard', -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', sans-serif;
+  --font-brand:   'Wanted Sans', 'Wanted Sans Variable', 'Pretendard JP', sans-serif;
+  --font-mono:    'SF Mono', 'Fira Mono', 'JetBrains Mono', monospace;
+}
+
+/* ─────────────────────────────────────────────
+   TYPOGRAPHY — BASE STYLES
+───────────────────────────────────────────── */
+:root {
+  /* Display */
+  --text-display-2-size:    40px;
+  --text-display-2-lh:      52px;
+  --text-display-2-ls:      -0.028em;
+  --text-display-2-weight:  700;
+
+  --text-display-3-size:    36px;
+  --text-display-3-lh:      48px;
+  --text-display-3-ls:      -0.027em;
+  --text-display-3-weight:  700;
+
+  /* Title */
+  --text-title-1-size:   32px;
+  --text-title-1-lh:     44px;
+  --text-title-1-ls:     -0.025em;
+  --text-title-1-weight: 700;
+
+  --text-title-2-size:   28px;
+  --text-title-2-lh:     38px;
+  --text-title-2-ls:     -0.024em;
+  --text-title-2-weight: 700;
+
+  --text-title-3-size:   24px;
+  --text-title-3-lh:     32px;
+  --text-title-3-ls:     -0.023em;
+  --text-title-3-weight: 700;
+
+  /* Heading */
+  --text-heading-1-size:   22px;
+  --text-heading-1-lh:     30px;
+  --text-heading-1-ls:     -0.019em;
+  --text-heading-1-weight: 700;
+
+  --text-heading-2-size:   20px;
+  --text-heading-2-lh:     28px;
+  --text-heading-2-ls:     -0.012em;
+  --text-heading-2-weight: 700;
+
+  /* Headline */
+  --text-headline-1-size:   18px;
+  --text-headline-1-lh:     26px;
+  --text-headline-1-ls:     -0.002em;
+  --text-headline-1-weight: 600;
+
+  --text-headline-2-size:   17px;
+  --text-headline-2-lh:     24px;
+  --text-headline-2-ls:     0em;
+  --text-headline-2-weight: 600;
+
+  /* Body */
+  --text-body-1-size:   16px;
+  --text-body-1-lh-normal:  24px;
+  --text-body-1-lh-reading: 26px;
+  --text-body-1-ls:     0.006em;
+  --text-body-1-weight: 500;
+
+  --text-body-2-size:   15px;
+  --text-body-2-lh-normal:  22px;
+  --text-body-2-lh-reading: 24px;
+  --text-body-2-ls:     0.010em;
+  --text-body-2-weight: 500;
+
+  /* Label */
+  --text-label-1-size:   14px;
+  --text-label-1-lh-normal:  20px;
+  --text-label-1-lh-reading: 22px;
+  --text-label-1-ls:     0.015em;
+  --text-label-1-weight: 600;
+
+  --text-label-2-size:   13px;
+  --text-label-2-lh:     18px;
+  --text-label-2-ls:     0.019em;
+  --text-label-2-weight: 600;
+
+  /* Caption */
+  --text-caption-1-size:   12px;
+  --text-caption-1-lh:     16px;
+  --text-caption-1-ls:     0.025em;
+  --text-caption-1-weight: 500;
+
+  --text-caption-2-size:   11px;
+  --text-caption-2-lh:     14px;
+  --text-caption-2-ls:     0.031em;
+  --text-caption-2-weight: 500;
+}
+
+/* ─────────────────────────────────────────────
+   SEMANTIC TYPOGRAPHY CLASSES
+───────────────────────────────────────────── */
+.text-display-2 {
+  font-family: var(--font-primary);
+  font-size: var(--text-display-2-size);
+  line-height: var(--text-display-2-lh);
+  letter-spacing: var(--text-display-2-ls);
+  font-weight: var(--text-display-2-weight);
+}
+.text-display-3 {
+  font-family: var(--font-primary);
+  font-size: var(--text-display-3-size);
+  line-height: var(--text-display-3-lh);
+  letter-spacing: var(--text-display-3-ls);
+  font-weight: var(--text-display-3-weight);
+}
+.text-title-1 {
+  font-family: var(--font-primary);
+  font-size: var(--text-title-1-size);
+  line-height: var(--text-title-1-lh);
+  letter-spacing: var(--text-title-1-ls);
+  font-weight: var(--text-title-1-weight);
+}
+.text-title-2 {
+  font-family: var(--font-primary);
+  font-size: var(--text-title-2-size);
+  line-height: var(--text-title-2-lh);
+  letter-spacing: var(--text-title-2-ls);
+  font-weight: var(--text-title-2-weight);
+}
+.text-title-3 {
+  font-family: var(--font-primary);
+  font-size: var(--text-title-3-size);
+  line-height: var(--text-title-3-lh);
+  letter-spacing: var(--text-title-3-ls);
+  font-weight: var(--text-title-3-weight);
+}
+.text-heading-1 {
+  font-family: var(--font-primary);
+  font-size: var(--text-heading-1-size);
+  line-height: var(--text-heading-1-lh);
+  letter-spacing: var(--text-heading-1-ls);
+  font-weight: var(--text-heading-1-weight);
+}
+.text-heading-2 {
+  font-family: var(--font-primary);
+  font-size: var(--text-heading-2-size);
+  line-height: var(--text-heading-2-lh);
+  letter-spacing: var(--text-heading-2-ls);
+  font-weight: var(--text-heading-2-weight);
+}
+.text-headline-1 {
+  font-family: var(--font-primary);
+  font-size: var(--text-headline-1-size);
+  line-height: var(--text-headline-1-lh);
+  letter-spacing: var(--text-headline-1-ls);
+  font-weight: var(--text-headline-1-weight);
+}
+.text-headline-2 {
+  font-family: var(--font-primary);
+  font-size: var(--text-headline-2-size);
+  line-height: var(--text-headline-2-lh);
+  letter-spacing: var(--text-headline-2-ls);
+  font-weight: var(--text-headline-2-weight);
+}
+.text-body-1 {
+  font-family: var(--font-primary);
+  font-size: var(--text-body-1-size);
+  line-height: var(--text-body-1-lh-normal);
+  letter-spacing: var(--text-body-1-ls);
+  font-weight: var(--text-body-1-weight);
+}
+.text-body-1-reading {
+  font-family: var(--font-primary);
+  font-size: var(--text-body-1-size);
+  line-height: var(--text-body-1-lh-reading);
+  letter-spacing: var(--text-body-1-ls);
+  font-weight: var(--text-body-1-weight);
+}
+.text-body-2 {
+  font-family: var(--font-primary);
+  font-size: var(--text-body-2-size);
+  line-height: var(--text-body-2-lh-normal);
+  letter-spacing: var(--text-body-2-ls);
+  font-weight: var(--text-body-2-weight);
+}
+.text-label-1 {
+  font-family: var(--font-primary);
+  font-size: var(--text-label-1-size);
+  line-height: var(--text-label-1-lh-normal);
+  letter-spacing: var(--text-label-1-ls);
+  font-weight: var(--text-label-1-weight);
+}
+.text-label-2 {
+  font-family: var(--font-primary);
+  font-size: var(--text-label-2-size);
+  line-height: var(--text-label-2-lh);
+  letter-spacing: var(--text-label-2-ls);
+  font-weight: var(--text-label-2-weight);
+}
+.text-caption-1 {
+  font-family: var(--font-primary);
+  font-size: var(--text-caption-1-size);
+  line-height: var(--text-caption-1-lh);
+  letter-spacing: var(--text-caption-1-ls);
+  font-weight: var(--text-caption-1-weight);
+}
+.text-caption-2 {
+  font-family: var(--font-primary);
+  font-size: var(--text-caption-2-size);
+  line-height: var(--text-caption-2-lh);
+  letter-spacing: var(--text-caption-2-ls);
+  font-weight: var(--text-caption-2-weight);
+}
+
+/* Foreground color helpers */
+.fg-primary   { color: var(--color-fg-primary); }
+.fg-secondary { color: var(--color-fg-secondary); }
+.fg-tertiary  { color: var(--color-fg-tertiary); }
+.fg-link      { color: var(--color-fg-link); }
+.fg-error     { color: var(--color-fg-error); }
+.fg-success   { color: var(--color-fg-success); }
